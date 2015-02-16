@@ -1,0 +1,78 @@
+========================================================================
+
+ Copyright (C) 2013  Gabriel Moro Sabedotti Chemim  - GRR20131671
+                     Rafael Ravedutti Lucio Machado - GRR20135958
+
+ This file is part of Vina
+
+ Vina is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Vina is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Vina.  If not, see <http://www.gnu.org/licenses/>.
+
+========================================================================
+
+Arquivos/Diretórios do programa Vina:
+========================================================================
+
+doc: Diretório que contem a documentação gerada pelo programa doxygen.
+
+src: Diretório que contém os arquivos fontes do programa
+
+src/archive.c: Contém funções para manipular arquivadores do tipo Vina em um nível de abstração mais alto.
+
+src/archive.h: Contém os cabeçalhos das funções escritas em src/archive.c e algumas macros definidas pelo programa.
+
+src/file.c: Contém funções para manipular os arquivadores do tipo Vina em um nível de abstração mais baixo, as funções definidas aqui realizam a parte de manipulação em disco destes arquivadores.
+
+src/file.h: Contém os cabeçalhos das funções escritas em src/file.c.
+
+src/fileheaders.c: Contém funções para manipular os cabeçalhos dos membros de arquivadores do tipo Vina, a manipulação é feita em memória.
+
+src/fileheaders.h: Contém os cabeçalhos das funções escritas em src/fileheaders.c e a estrutura de dados do cabeçalho de cada membro.
+
+src/members.c: Contém funções para gerar e manipular a lista ligada que será preenchida de acordo com os membros passados como parâmetro na execução do programa.
+
+src/members.h: Contém os cabeçalhos das funções escritas em src/members.c e as estruturas de dados utilizada pela lista ligada.
+
+src/parser.c: Contém a função para analisar os parâmetros passados na execução do programa e o armazená-los nos lugares ideais para serem usados posteriormente no programa.
+
+src/parser.h: Contém o cabeçalho das funções escritas em src/parser.c.
+
+src/vina.c: Contém a função principal, as instruções de uso e a função para executar o devido comando através da opção passada.
+
+src/vina.h: Contém macros de definições e configurações utilizadas no programa.
+
+Makefile: Contém as instruções usadas pelo programa Make para compilar, gerar documentação e limpar os arquivos gerados na compilação do programa.
+
+
+Desenvolvimento/Estruturas de dados:
+========================================================================
+
+Os arquivadores Vina possuem um cabeçalho principal no início que contém um identificador que diz se o arquivo é um arquivador do tipo Vina e o número de arquivos/membros dentro do arquivador. Após este cabeçalho, aparecem o conteúdo dos arquivos concatenados na ordem em que foram inseridos. E por fim são gravados os cabeçalhos de cada membro contido no arquivador (na mesma ordem dos conteúdos). A estrutura de um arquivador do tipo Vina é mostrada a seguir:
+
++---------------------------+
+| VINA | Número de arquivos |-> Cabeçalho principal
++---------------------------+
+|     Conteúdo membro1      |
+|     Conteúdo membro2      |
+|            ...            |-> Conteúdo dos membros
+|     Conteúdo membroN      |
++---------------------------+
+|     Cabeçalho membro1     |
+|     Cabeçalho membro2     |
+|            ...            |-> Cabeçalhos dos membros
+|     Cabeçalho membroN     |
++---------------------------+
+
+Os cabeçalhos (tanto o principal quanto o dos membros) são manipulados em memória enquanto o conteúdo dos membros são manipulados em disco, os cabeçalhos dos membros foram adicionados no final do arquivador pois assim podemos manipular e redimensionar (quando adicionamos/removemos um membro) essa parte sem que ela sobreeescreva algo na parte de conteúdos.
+
+Durante o desenvolvimento, foram encontrados alguns desafios principalmente na parte de manipulação em disco (códigos escritos em src/file.c), em destaque fica a opção mover (-m), que teve de ser dividida em dois casos (mover um membro para direta e mover um membro para esquerda).
