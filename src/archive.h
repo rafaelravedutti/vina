@@ -25,7 +25,7 @@
 #include <fileheaders.h>
 
 /* Identificador de arquivadores VINA */
-#define VINA_IDENTIFIER            "VINA\0"
+#define VINA_IDENTIFIER         "VINA\0"
 
 /* Tamanho da string definida em VINA_IDENTIFIER */
 #define VINA_IDENTIFIER_SIZE    5
