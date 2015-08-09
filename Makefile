@@ -38,38 +38,38 @@ LDFLAGS=
 all: $(EXEC)
 
 $(EXEC): $(OBJDIR)/archive.o $(OBJDIR)/file.o $(OBJDIR)/fileheaders.o $(OBJDIR)/members.o $(OBJDIR)/parser.o $(OBJDIR)/vina.o
-	@echo "> Linkando arquivos objetos..."
-	$(CC) $? $(LDFLAGS) -o $(EXEC)
+    @echo "> Linkando arquivos objetos..."
+    $(CC) $? $(LDFLAGS) -o $(EXEC)
 
 $(OBJDIR)/archive.o: $(SRCDIR)/archive.c
-	@echo "> Compilando $<..."
-	$(CC) $< $(CFLAGS) -o $(OBJDIR)/archive.o
+    @echo "> Compilando $<..."
+    $(CC) $< $(CFLAGS) -o $(OBJDIR)/archive.o
 
 $(OBJDIR)/file.o: $(SRCDIR)/file.c
-	@echo "> Compilando $<..."
-	$(CC) $< $(CFLAGS) -o $(OBJDIR)/file.o
+    @echo "> Compilando $<..."
+    $(CC) $< $(CFLAGS) -o $(OBJDIR)/file.o
 
 $(OBJDIR)/fileheaders.o: $(SRCDIR)/fileheaders.c
-	@echo "> Compilando $<..."
-	$(CC) $< $(CFLAGS) -o $(OBJDIR)/fileheaders.o
+    @echo "> Compilando $<..."
+    $(CC) $< $(CFLAGS) -o $(OBJDIR)/fileheaders.o
 
 $(OBJDIR)/members.o: $(SRCDIR)/members.c
-	@echo "> Compilando $<..."
-	$(CC) $< $(CFLAGS) -o $(OBJDIR)/members.o
+    @echo "> Compilando $<..."
+    $(CC) $< $(CFLAGS) -o $(OBJDIR)/members.o
 
 $(OBJDIR)/parser.o: $(SRCDIR)/parser.c
-	@echo "> Compilando $<..."
-	$(CC) $< $(CFLAGS) -o $(OBJDIR)/parser.o
+    @echo "> Compilando $<..."
+    $(CC) $< $(CFLAGS) -o $(OBJDIR)/parser.o
 
 $(OBJDIR)/vina.o: $(SRCDIR)/vina.c
-	@echo "> Compilando $<..."
-	$(CC) $< $(CFLAGS) -o $(OBJDIR)/vina.o
+    @echo "> Compilando $<..."
+    $(CC) $< $(CFLAGS) -o $(OBJDIR)/vina.o
 
 doc:
-	@echo "> Gerando documentação..."
-	cd doc && doxygen Doxyfile
-	@echo "> Documentação gerada em doc/html"
+    @echo "> Gerando documentação..."
+    cd doc && doxygen Doxyfile
+    @echo "> Documentação gerada em doc/html"
 
 clean:
-	@echo "> Removendo arquivos..."
-	rm -f $(OBJDIR)/*.o $(EXEC)
+    @echo "> Removendo arquivos..."
+    rm -f $(OBJDIR)/*.o $(EXEC)
