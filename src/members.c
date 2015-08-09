@@ -26,68 +26,68 @@
 
 /* Aloca uma lista de membros vazia e retorna um ponteiro para o seu endereço */
 struct memberlist *allocMemberList() {
-	struct memberlist *memlist;
+    struct memberlist *memlist;
 
-	memlist = (struct memberlist *) malloc(sizeof(struct memberlist));
+    memlist = (struct memberlist *) malloc(sizeof(struct memberlist));
 
-	if(memlist != NULL) {
-		memlist->members = 0;
-		memlist->base = NULL;
-		memlist->last = NULL;
-	}
+    if(memlist != NULL) {
+        memlist->members = 0;
+        memlist->base = NULL;
+        memlist->last = NULL;
+    }
 
-	return memlist;
+    return memlist;
 }
 
 /* Adiciona um arquivo a uma lista de membros */
 void addFile(struct memberlist *memlist, const char *filename) {
-	struct member *m;
+    struct member *m;
 
-	m = (struct member *) malloc(sizeof(struct member));
+    m = (struct member *) malloc(sizeof(struct member));
 
-	if(m != NULL) {
-		/* Atribuimos os dados do membro */
-		memcpy(m->filename, filename, sizeof(m->filename));
-		m->next = NULL;
+    if(m != NULL) {
+        /* Atribuimos os dados do membro */
+        memcpy(m->filename, filename, sizeof(m->filename));
+        m->next = NULL;
 
-		/*
-		 * Se a base da lista não existir, então fazemos de m a base,
-		 * do contrário, definimos m como o próximo elemento do último e,
-		 * em seguida, m como o último membro, mantendo a lista ligada.
-		 */
+        /*
+         * Se a base da lista não existir, então fazemos de m a base,
+         * do contrário, definimos m como o próximo elemento do último e,
+         * em seguida, m como o último membro, mantendo a lista ligada.
+         */
 
-		if(!memlist->base) {
-			memlist->base = memlist->last = m;
-		} else {
-			memlist->last->next = m;
-			memlist->last = m;
-		}
+        if(!memlist->base) {
+            memlist->base = memlist->last = m;
+        } else {
+            memlist->last->next = m;
+            memlist->last = m;
+        }
 
-		/* Aumenta a quantidade de membros da lista */
-		++memlist->members;
-	}
+        /* Aumenta a quantidade de membros da lista */
+        ++memlist->members;
+    }
 }
 
 /* Libera a memória ocupada pela lista de membros apontada por memlist */
 void freeMemberList(struct memberlist *memlist) {
-	struct member *m, *nextmem;
+    struct member *m, *nextmem;
 
-	if(memlist != NULL) {
+    if(memlist != NULL) {
 
-		/*
-		 * Percorremos a lista de membros e vamos liberando cada membro
-		 * um por um, após isto, já podemos liberar o espaço de memória
-		 * apontado por memlist.
-		 */
+        /*
+         * Percorremos a lista de membros e vamos liberando cada membro
+         * um por um, após isto, já podemos liberar o espaço de memória
+         * apontado por memlist.
+         */
 
-		m = memlist->base;
+        m = memlist->base;
 
-		while(m != NULL) {
-			nextmem = m->next;
-			free(m);
-			m = nextmem;
-		}
+        while(m != NULL) {
+            nextmem = m->next;
+            free(m);
+            m = nextmem;
+        }
 
-		free(memlist);
-	}
+        free(memlist);
+    }
 }

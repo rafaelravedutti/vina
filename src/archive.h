@@ -25,15 +25,15 @@
 #include <fileheaders.h>
 
 /* Identificador de arquivadores VINA */
-#define VINA_IDENTIFIER			"VINA\0"
+#define VINA_IDENTIFIER            "VINA\0"
 
 /* Tamanho da string definida em VINA_IDENTIFIER */
-#define VINA_IDENTIFIER_SIZE	5
+#define VINA_IDENTIFIER_SIZE    5
 
 /* Estrutura com os dados do cabeçalho do arquivador */
 struct archeader {
-	char identifier[VINA_IDENTIFIER_SIZE];	/* Identificador VINA */
-	unsigned int nfiles;					/* Quantidade de arquivos */
+    char identifier[VINA_IDENTIFIER_SIZE];    /* Identificador VINA */
+    unsigned int nfiles;                    /* Quantidade de arquivos */
 };
 
 /** @brief Abre um arquivador Vina

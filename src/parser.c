@@ -30,37 +30,37 @@
  * (lista ligada com os membros passados)
  */
 int parse_vina_args(int argc, char *argv[], char **archive, struct memberlist *memlist) {
-	unsigned int i;
+    unsigned int i;
 
-	*archive = NULL;
+    *archive = NULL;
 
-	for(i = 1; i < argc; ++i) {
-		/* Verificamos se o parâmetro passado não é uma opção */
-		if(argv[i][0] != '-') {
+    for(i = 1; i < argc; ++i) {
+        /* Verificamos se o parâmetro passado não é uma opção */
+        if(argv[i][0] != '-') {
 
-			/*
-			 * Se archive ainda não foi definido, então o definimos
-			 * como o primeiro argumento, do contrário, o argumento
-			 * é um membro, então o adicionamos a lista de membros
-			 */
+            /*
+             * Se archive ainda não foi definido, então o definimos
+             * como o primeiro argumento, do contrário, o argumento
+             * é um membro, então o adicionamos a lista de membros
+             */
 
-			if(*archive == NULL) {
-				*archive = strdup(argv[i]);
+            if(*archive == NULL) {
+                *archive = strdup(argv[i]);
 
-				/* Caso archive não foi alocado, retornamos um código de erro */
-				if(*archive == NULL) {
-					fprintf(stderr, "Erro ao alocar memória\n");
-					return ERR_MEMALLOC;
-				}
-			} else {
-				addFile(memlist, argv[i]);
-			}
-		/* Se a opção -m (mover) for especificada, então pulamos
-		 * o parâmetro targ especificado nela						*/
-		} else if(argv[i][1] == 'm') {
-			++i;
-		}
-	}
+                /* Caso archive não foi alocado, retornamos um código de erro */
+                if(*archive == NULL) {
+                    fprintf(stderr, "Erro ao alocar memória\n");
+                    return ERR_MEMALLOC;
+                }
+            } else {
+                addFile(memlist, argv[i]);
+            }
+        /* Se a opção -m (mover) for especificada, então pulamos
+         * o parâmetro targ especificado nela                        */
+        } else if(argv[i][1] == 'm') {
+            ++i;
+        }
+    }
 
-	return 0;
+    return 0;
 }

@@ -27,12 +27,12 @@
 
 /* Lista com os dados do cabeçalho de cada arquivo */
 struct fileheader {
-	char fname[MAX_FILENAME];
-	time_t fmodtime;
-	mode_t fperm;
-	uid_t fuid;
-	gid_t fgid;
-	off_t fsize;
+    char fname[MAX_FILENAME];
+    time_t fmodtime;
+    mode_t fperm;
+    uid_t fuid;
+    gid_t fgid;
+    off_t fsize;
 };
 
 /** @brief Gera o cabeçalho de um arquivo 
