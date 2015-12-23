@@ -53,7 +53,7 @@
  * 
  *  \section aut_sec Autoria
  *
- *  Gabriel Moro Sabedotti Chemim e           Rafael Ravedutti Lucio Machado
+ *  Gabriel Moro Sabedotti Chemim e Rafael Ravedutti Lucio Machado
  */
 
 #endif // __VINA_H__
