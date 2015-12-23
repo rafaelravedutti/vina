@@ -1,6 +1,6 @@
 /*
  *  Copyright (C) 2013  Gabriel Moro Sabedotti Chemim
- *            Rafael Ravedutti Lucio Machado
+ *                      Rafael Ravedutti Lucio Machado
  *
  *  This file is part of Vina
  *
@@ -53,7 +53,7 @@
  * 
  *  \section aut_sec Autoria
  *
- *  Gabriel Moro Sabedotti Chemim e Rafael Ravedutti Lucio Machado
+ *  Gabriel Moro Sabedotti Chemim e           Rafael Ravedutti Lucio Machado
  */
 
 #endif // __VINA_H__
