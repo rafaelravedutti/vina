@@ -1,6 +1,6 @@
 /*
  *  Copyright (C) 2013  Gabriel Moro Sabedotti Chemim
- *                      Rafael Ravedutti Lucio Machado
+ *            Rafael Ravedutti Lucio Machado
  *
  *  This file is part of Vina
  *
@@ -25,15 +25,15 @@
 
 /* Estrutura com os dados de cada membro */
 struct member {
-    char filename[MAX_FILENAME];  /* Nome do arquivo/membro */
-    struct member *next;          /* Ponteiro para o próximo membro */
+  char filename[MAX_FILENAME];  /* Nome do arquivo/membro */
+  struct member *next;      /* Ponteiro para o próximo membro */
 };
 
 /* Estrutura com os dados de cada lista de membros */
 struct memberlist {
-    unsigned int members;     /* Quantidade de membros da lista */
-    struct member *base;    /* Ponteiro para a base (primeiro membro) da lista */
-    struct member *last;    /* Ponteiro para o último membro da lista */
+  unsigned int members;   /* Quantidade de membros da lista */
+  struct member *base;  /* Ponteiro para a base (primeiro membro) da lista */
+  struct member *last;  /* Ponteiro para o último membro da lista */
 };
 
 /* Aloca uma lista de membros vazia */

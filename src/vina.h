@@ -1,6 +1,6 @@
 /*
  *  Copyright (C) 2013  Gabriel Moro Sabedotti Chemim
- *                      Rafael Ravedutti Lucio Machado
+ *            Rafael Ravedutti Lucio Machado
  *
  *  This file is part of Vina
  *
@@ -22,26 +22,26 @@
 #define __VINA_H__
 
 /* Opções do programa */
-#define VINA_OPTION_INSERT      1
-#define VINA_OPTION_UPDATE      2
-#define VINA_OPTION_EXTRACT     3
-#define VINA_OPTION_MOVE        4
-#define VINA_OPTION_REMOVE      5
-#define VINA_OPTION_CONTENT     6
+#define VINA_OPTION_INSERT    1
+#define VINA_OPTION_UPDATE    2
+#define VINA_OPTION_EXTRACT   3
+#define VINA_OPTION_MOVE    4
+#define VINA_OPTION_REMOVE    5
+#define VINA_OPTION_CONTENT   6
 
 /* Códigos de erro do programa */
-#define ERR_MEMALLOC            (-1) /* Stack overflow, Memory leak */
-#define ERR_FOPEN               (-2) /* Erro ao abrir arquivo */
-#define ERR_HDRLIST             (-3) /* Lista de cabeçalhos corrompida */
-#define ERR_CHOWN               (-4) /* Erro ao mudar o dono do arquivo */
-#define ERR_CHMOD               (-5) /* Erro ao mudar as permissões do arquivo */
+#define ERR_MEMALLOC      (-1) /* Stack overflow, Memory leak */
+#define ERR_FOPEN         (-2) /* Erro ao abrir arquivo */
+#define ERR_HDRLIST       (-3) /* Lista de cabeçalhos corrompida */
+#define ERR_CHOWN         (-4) /* Erro ao mudar o dono do arquivo */
+#define ERR_CHMOD         (-5) /* Erro ao mudar as permissões do arquivo */
 
 /* Limites e configurações */
-#define MAX_FILENAME            256 /* Tamanho máximo de nome de arquivo */
-#define MAX_BUFFER              1024 /* Tamanho máximo do buffer para leitura/escrita */
+#define MAX_FILENAME      256 /* Tamanho máximo de nome de arquivo */
+#define MAX_BUFFER        1024 /* Tamanho máximo do buffer para leitura/escrita */
 
 /* Função mínimo */
-#define MIN(a,b)                ((a) < (b) ? (a) : (b))
+#define MIN(a,b)        ((a) < (b) ? (a) : (b))
 
 /**
  * \mainpage Arquivador Vina
